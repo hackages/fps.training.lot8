@@ -3,6 +3,9 @@ package io.hackages.learning.fizzbuzz;
 public class Main {
 
     public String transform(Integer number) {
-        throw new RuntimeException("TODO");
+        if (number % 3 == 0) {
+            return "fizz";
+        }
+        return number.toString();
     }
 }
