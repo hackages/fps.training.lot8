@@ -8,10 +8,10 @@ class Exercice01Test {
     @Test
     public void test_countInLatin() {
         // Goal: print a 1
-        for (int i=0; i<100; i++) {
+        for (int i=1; i<=3000; i++) {
             String result = Exercice01.countInLatin(i);
             // assertEquals("MMMDLVX", result, "");
-            System.out.println("i="+i+"=" + result);
+            System.out.println(i+"=" + result);
         }
     }
 
