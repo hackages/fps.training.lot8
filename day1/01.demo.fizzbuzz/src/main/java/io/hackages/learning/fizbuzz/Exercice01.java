@@ -8,6 +8,10 @@ public class Exercice01 {
                 result.append("M");
                 number = number - 1000;
             }
+            while (number >= 900)  {
+                result.append("CM");
+                number = number - 900;
+            }
             while (number >= 500) {
                 result.append("D");
                 number = number - 500;
@@ -15,6 +19,10 @@ public class Exercice01 {
             while (number >= 100)  {
                 result.append("C");
                 number = number - 100;
+            }
+            while (number >= 90)  {
+                result.append("XC");
+                number = number - 90;
             }
             while (number >= 50)  {
                 result.append("L");
