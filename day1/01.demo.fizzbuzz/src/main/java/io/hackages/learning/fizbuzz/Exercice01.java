@@ -24,9 +24,17 @@ public class Exercice01 {
                 result.append("X");
                 number = number - 10;
             }
+            while (number >= 9) {
+                result.append("IX");
+                number = number - 9;
+            }
             while (number >= 5)  {
                 result.append("V");
-                number = number - 50;
+                number = number - 5;
+            }
+            while (number >= 4)  {
+                result.append("IV");
+                number = number - 4;
             }
             while (number >= 1)  {
                 result.append("I");
