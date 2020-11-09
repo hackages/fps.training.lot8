@@ -2,9 +2,11 @@
 
 ## Agenda 
 
-* Basic Selenium WebDriver Setup   
+* Analyse Selenium WebDriver Setup
+* Sample introductory exercise
+* Explore practice websites and automate scenarios
 
-## Basic Selenium WebDriver Setup 
+## Selenium WebDriver Setup 
 
 * Observe the dependencies declaration 
 * Compile your project with command `mvn clean install -DskipTests`
@@ -25,3 +27,7 @@ with
 ```
 
 ## Resources
+* Practice websites : 
+    * http://the-internet.herokuapp.com/ 
+    * http://automationpractice.com/index.php
+    * http://book.theautomatedtester.co.uk/

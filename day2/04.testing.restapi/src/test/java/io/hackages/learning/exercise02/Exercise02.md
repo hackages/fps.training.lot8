@@ -1,24 +1,29 @@
 # Exercise 02
 
 ## Description 
-> In this section, the goal is to explore POST endpoints
+> In this section, the goal is to run CRUD operations
 
-## The REST API Documentation
-[API endpoint](https://myfakeapi.com/)
-
-## JSON escape 
-For JSON [escape](https://www.freeformatter.com/json-escape.html)
+## JSON server documentation 
+https://github.com/typicode/json-server
 
 ## Instructions 
 
-* Following the example of `test_contact_example`
-* Start your own REST API with `json-server` (from npm) via the command `json-server --watch src/test/resources/data.json`
+* Start your own REST API with 
+    * Install or update `json-server` (from npm) 
+    * Run the command from the module root `json-server src/test/resources/data.json`
+* Analyse the test `test_add_cat_fact_ok`
+    * Run the test 
+    * Run it again
+    * Fix the test
 * Create a new test scenario following these steps
-   * Fetch a record from the endpoint `catFacts` using an `id`
+   * Fetch a record from the endpoint `catFacts` using a query parameter `id`
    * Delete that record
-   * Fetch the previous record and match the status code
+   * Try to fetch the deleted record and match the status code
 * Create a new test scenario following these steps
    * Fetch a record from the endpoint `catFacts` using an `id`
-   * Update that record
+   * Update that record with operation PUT
    * Fetch the updated record 
-   * Assert the changes made
+   * Assert the changes made to the record 
+
+## Resources
+* [JSON escape](https://www.freeformatter.com/json-escape.html)
