@@ -58,4 +58,3 @@ JsonPath json = new JsonPath(s);
 Assert.assertEquals(933, json.getInt("Id"));		 
 ```
    * Use `assertThat` with different fields in the response object
-

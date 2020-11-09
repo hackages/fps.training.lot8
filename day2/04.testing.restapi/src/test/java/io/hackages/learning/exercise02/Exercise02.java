@@ -11,25 +11,31 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.startsWith;
 
 /**
- * POST Endpoint
- *
+ * CRUD Operations
  */
 public class Exercise02 {
 
     @Test
-    public void test_contact_example() throws URISyntaxException {
-
-        String jsonBody = "{\\r\\n\\t\\\"firstName\\\":\\\"John\\\",\\r\\n\\t\\\"lastName\\\":\\\"Wick\\\",\\r\\n\\t\\\"message\\\":\\\"I am coming for you !!!!\\\",\\r\\n\\t\\\"contact\\\": 123456789\\t\\r\\n}";
+    public void test_add_cat_fact_ok() throws URISyntaxException {
+        // Json content in file catFact.json
+        String jsonBody = "{\"id\": \"whiskers123\",\"type\": \"cat\",\"text\": \"Meow\",\"user\": {\"id\": \"furry1234\",\"name\": {\"first\": \"Music\",\"last\": \"Player\"}},\"upvotes\": 1,\"userUpvoted\": null}";
 
         given()
                 .contentType(ContentType.JSON)
                 .and()
                 .body(jsonBody)
                 .when()
-                .post("https://myfakeapi.com/api/contactus")
+                .post("http://localhost:3000/catFacts")
                 .then()
                 .assertThat()
-                .statusCode(HttpStatus.SC_BAD_REQUEST);
+                .statusCode(HttpStatus.SC_CREATED)
+                .and()
+                .body("id", equalTo("whiskers123"))
+                .and()
+                .body("text", equalTo("Meow"))
+                .and()
+                .body("user.id", equalTo("furry1234"))
+        ;
     }
 
 }

@@ -1,5 +1,12 @@
 # Training for Java developers : Test Automation
 
+# Requirements 
+* Install JDK 14 
+* Setup in PATH > Variables environments 
+* Install NPM , Postman 
+* Run json-server 
+
+
 ## Day 1 
 
 * [Excercise 1](/day1/01.demo.fizzbuzz/README.md) 
