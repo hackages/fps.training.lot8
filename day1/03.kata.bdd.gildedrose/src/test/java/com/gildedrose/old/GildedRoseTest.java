@@ -1,11 +1,10 @@
-package com.gildedrose;
-
-import org.junit.Test;
+package com.gildedrose.old;
 
 import static org.junit.Assert.assertEquals;
 
 public class GildedRoseTest {
 
+    /*
     @Test
     public void foo() {
         Item[] items = new Item[] { new Item("foo", 0, 0) };
@@ -13,4 +12,5 @@ public class GildedRoseTest {
         app.updateQuality();
         assertEquals("foo", app.items[0].name);
     }
+     */
 }

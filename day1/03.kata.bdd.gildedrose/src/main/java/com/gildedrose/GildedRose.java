@@ -1,62 +1,36 @@
 package com.gildedrose;
 
-class GildedRose {
-    Item[] items;
+import com.gildedrose.refactored.Inventory;
+import com.gildedrose.refactored.model.Item;
+import com.gildedrose.refactored.service.ItemQualityUpdater;
+import com.gildedrose.refactored.factory.UpdaterFactory;
 
-    public GildedRose(Item[] items) {
-        this.items = items;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class GildedRose {
+
+    private Inventory inventory = new Inventory();
+
+    public GildedRose() {
+        updateQuality();
+    }
+
+    public GildedRose(Inventory inventory) {
+        this.inventory = inventory;
     }
 
     public void updateQuality() {
-        for (int i = 0; i < items.length; i++) {
-            if (!items[i].name.equals("Aged Brie")
-                    && !items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                if (items[i].quality > 0) {
-                    if (!items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
-                        items[i].quality = items[i].quality - 1;
-                    }
-                }
-            } else {
-                if (items[i].quality < 50) {
-                    items[i].quality = items[i].quality + 1;
+        List<Item> updatedItems = inventory.getItems().stream().map(item -> updateQuality(item)).collect(Collectors.toList());
+        inventory.setItems(updatedItems);
+    }
 
-                    if (items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                        if (items[i].sellIn < 11) {
-                            if (items[i].quality < 50) {
-                                items[i].quality = items[i].quality + 1;
-                            }
-                        }
+    private Item updateQuality(Item item) {
+        ItemQualityUpdater itemQualityUpdater = UpdaterFactory.getQualityUpdater(item);
+        return itemQualityUpdater.updateQuality(item);
+    }
 
-                        if (items[i].sellIn < 6) {
-                            if (items[i].quality < 50) {
-                                items[i].quality = items[i].quality + 1;
-                            }
-                        }
-                    }
-                }
-            }
-
-            if (!items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
-                items[i].sellIn = items[i].sellIn - 1;
-            }
-
-            if (items[i].sellIn < 0) {
-                if (!items[i].name.equals("Aged Brie")) {
-                    if (!items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                        if (items[i].quality > 0) {
-                            if (!items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
-                                items[i].quality = items[i].quality - 1;
-                            }
-                        }
-                    } else {
-                        items[i].quality = items[i].quality - items[i].quality;
-                    }
-                } else {
-                    if (items[i].quality < 50) {
-                        items[i].quality = items[i].quality + 1;
-                    }
-                }
-            }
-        }
+    public Inventory getInventory() {
+        return inventory;
     }
 }
